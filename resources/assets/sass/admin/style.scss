@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/*
+ * @name Admin CSS
+ */
+
+/* Resets...
+============================================================= */
+@import "../common/resets";
+
+/* Common...
+========================================================= */
+@import "../common/animate";
+
+/* Sass Setting...
+========================================================= */
+@import "Partials/settings";
+@import "Partials/mixins";
+@import "Partials/override";
+
+
+/* Generals...
+============================================================= */
+body
+{
+	font: 14px/1.6 "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Helvetica, Arial, Sans-Serif;
+	color: #333;
+	text-align: left;
+	width: 100%;
+	padding-top: 90px;
+}
+
+.page-header {
+	margin: 0 auto 5px;
+	border-bottom: none;
+}
+
+hr {
+	background-color: #fff;
+	border-top: 2px dashed #8c8b8b;
+}
+
+.footer {
+	color: #887;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}

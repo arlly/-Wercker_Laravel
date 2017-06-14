@@ -1,0 +1,44 @@
+.currency-form {
+  width: 75%;
+  .calculationForm {
+    margin-bottom: 30px;
+    table {
+      width: 100%;
+      >thead {
+        th {
+          padding: 10px;
+          text-align: center;
+          color: #ff0000;
+          border-right: 1px solid #fff;
+          background-color: #ffe5e5;
+        }
+        th {
+          &:first-child {
+            width: 88px;
+            background: none;
+          }
+          &:last-child {
+            width: 40%;
+          }
+        }
+      }
+      >tbody {
+        tr {
+          border-bottom: 1px solid #ddd;
+        }
+        td {
+          padding: 10px 3px;
+        }
+      }
+    }
+  }
+}
+
+@import "currency_image";
+@import "currency_online";
+@import "currency_other";
+@import "currency_calculation";
+@import "current_rate_info";
+@import "buy_detail";
+@import "banner";
+@import "info";

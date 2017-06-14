@@ -1,0 +1,12 @@
+.competitorRateArea {
+  margin-top: 10px;
+  .competitorRate {
+    justify-content: space-between;
+    .otherCompany{
+      padding: 0 10px;
+      color: #fff;
+      border-radius: 20px;
+      background-color: #999;
+    }
+  }
+}

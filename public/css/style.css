@@ -1,0 +1,293 @@
+.button-default {
+  padding: 0 20px;
+  border: none;
+}
+
+.button-type01 {
+  background: linear-gradient(to bottom, #A8D4EF 0%, #A8D4EF 50%, #A8D4EF 50%, #47C1F4 50%, #47C1F4 50%, #47C1F4 100%);
+}
+
+.button-type01:hover {
+  text-decoration: none;
+}
+
+.button-type02 {
+  background: linear-gradient(to bottom, #d70000 0%, #d70000 50%, #680000 50%, #680000 100%);
+}
+
+.button-rounded {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #FFF;
+  border-radius: 15px;
+}
+
+.button-arrow:before {
+  content: "\f0da";
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  width: 50%;
+  max-height: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  z-index: 10001;
+  background: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: scroll;
+  margin: auto;
+  padding: 20px;
+  transition: all 0.1s ease;
+}
+
+.currency-form {
+  width: 75%;
+}
+
+.currency-form .calculationForm {
+  margin-bottom: 30px;
+}
+
+.currency-form .calculationForm table {
+  width: 100%;
+}
+
+.currency-form .calculationForm table > thead th {
+  padding: 10px;
+  text-align: center;
+  color: #ff0000;
+  border-right: 1px solid #fff;
+  background-color: #ffe5e5;
+}
+
+.currency-form .calculationForm table > thead th:first-child {
+  width: 88px;
+  background: none;
+}
+
+.currency-form .calculationForm table > thead th:last-child {
+  width: 40%;
+}
+
+.currency-form .calculationForm table > tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.currency-form .calculationForm table > tbody td {
+  padding: 10px 3px;
+}
+
+.currency-form {
+  width: 73%;
+}
+
+.currency-form .calculationForm .currencyImageContainer {
+  width: 88px;
+}
+
+.currency-form .calculationForm .currencyImage {
+  text-align: center;
+}
+
+.currency-form .calculationForm .currencyType {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+  top: -10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.currency-form .calculationForm .currencyType > p {
+  line-height: 1;
+}
+
+.currency-form .calculationForm .currencyType .currencyName {
+  font-size: 0.5rem;
+}
+
+.onlineRate .currencyRate {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.competitorRateArea {
+  margin-top: 10px;
+}
+
+.competitorRateArea .competitorRate {
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.competitorRateArea .competitorRate .otherCompany {
+  padding: 0 10px;
+  color: #fff;
+  border-radius: 20px;
+  background-color: #999;
+}
+
+.purchaseRequest {
+  padding-left: 10px;
+}
+
+.purchaseRequest .calculationArea dd > input {
+  width: 60px;
+  padding: 5px;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.purchaseRequest .calculationArea .currency:after {
+  content: "\f0d7";
+  display: block;
+  color: #d70000;
+}
+
+.purchaseRequest .foreignCurrencyForm {
+  margin-left: 20px;
+}
+
+.purchaseRequest .purchasePrice {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.purchaseRequest .purchasePrice .price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.currentRateInfo {
+  margin-bottom: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.currentRateInfo .titleCurrentRate {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0852a0;
+}
+
+.currentRateInfo .titleCurrentRate > span {
+  padding-left: 50px;
+}
+
+.currentRateInfo .titleCurrentRate:before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: url(../images/icon_dollar.png) no-repeat;
+  background-size: cover;
+}
+
+.currentRateInfo .rateUpdateTime {
+  padding-top: 8px;
+  display: -ms-flexbox;
+  display: flex;
+  color: #0852a0;
+  font-weight: bold;
+}
+
+.rateDetail {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.contentTopBnr .titleImage {
+  margin-bottom: 10px;
+}
+
+.buyBtmContent .infoArea {
+  margin-bottom: 100px;
+}
+
+.buyBtmContent .info {
+  width: 480px;
+  height: 40px;
+  margin: 0 auto 10px;
+  padding: 5px 20px;
+  position: relative;
+  border-radius: 10px;
+  border: 2px solid #0852a0;
+}
+
+.buyBtmContent .info p {
+  padding-left: 42px;
+}
+
+.buyBtmContent .info:before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: url(../images/icon_info.png) no-repeat;
+}
+
+.buyBtmContent .oneLine {
+  line-height: 40px;
+}
+
+.app {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 1080px;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.sideBySide {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.confirmBtn {
+  text-align: center;
+}
+
+.contentTopBnr {
+  margin-bottom: 30px;
+}

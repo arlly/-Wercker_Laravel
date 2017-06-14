@@ -1,0 +1,30 @@
+.buyBtmContent {
+  .infoArea {
+    margin-bottom: 100px;
+  }
+  .info {
+    width: 480px;
+    height: 40px;
+    margin: 0 auto 10px;
+    padding: 5px 20px;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid #0852a0;
+    p {
+      padding-left: 42px;
+    }
+    &:before {
+      content: "";
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: url(../images/icon_info.png) no-repeat;
+    }
+  }
+  .oneLine {
+    line-height: 40px;
+  }
+}

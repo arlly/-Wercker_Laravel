@@ -1,0 +1,28 @@
+.button {
+  &-default {
+    padding: 0 20px;
+    border: none;
+  }
+  &-type01 {
+    background: linear-gradient(to bottom, #A8D4EF 0%, #A8D4EF 50%, #A8D4EF 50%, #47C1F4 50%, #47C1F4 50%, #47C1F4 100%);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &-type02 {
+    background: linear-gradient(to bottom, #d70000 0%, #d70000 50%, #680000 50%, #680000 100%);
+  }
+  &-rounded {
+    display: inline-block;;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFF;
+    border-radius: 15px;
+  }
+  &-arrow {
+    &:before {
+      content: "\f0da";
+    }
+  }
+}

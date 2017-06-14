@@ -1,0 +1,29 @@
+.currency-form {
+  width: 73%;
+  .calculationForm {
+    .currencyImageContainer {
+      width: 88px;
+    }
+    .currencyImage {
+      text-align: center;
+    }
+    .currencyType {
+      width: 90%;
+      margin: 0 auto;
+      padding: 0 10px;
+      position: relative;
+      top: -10px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      background-color: #fff;
+      >p {
+        line-height: 1;
+      }
+      .currencyName {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}

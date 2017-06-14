@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import "./components/button";
+@import "./components/modal";
+@import "./components/currency_list";
+
+.app {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.sideBySide {
+  display: flex;
+}
+
+.confirmBtn {
+  text-align: center;
+}
+
+.contentTopBnr {
+  margin-bottom: 30px;
+}

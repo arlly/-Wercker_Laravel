@@ -1,0 +1,32 @@
+.currentRateInfo {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  .titleCurrentRate {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0852a0;
+    >span {
+      padding-left: 50px;
+    }
+    &:before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: url(../images/icon_dollar.png) no-repeat;
+      background-size: cover;
+    }
+  }
+  .rateUpdateTime {
+    padding-top: 8px;
+    display: flex;
+    color: #0852a0;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,83 @@
+
+/*
+ * Overrides...
+ */
+ 
+/* Override on Bootstrap...
+ ========================================================= */
+ 
+ /* table微調整 */
+.table>tbody>tr>td, .table>tbody>tr>th,
+.table>tfoot>tr>td, .table>tfoot>tr>th,
+.table>thead>tr>td, .table>thead>tr>th {
+	vertical-align: middle;
+}
+
+.breadcrumb {
+	font-size: 18px;
+	background-color: transparent;
+	margin-bottom: 10px;
+}
+
+/* navbar
+-----------------------------*/
+.navbar-inverse-extends {
+	border-color: transparent;
+	box-shadow:0px 3px 5px #999;
+	background: rgba( 0, 0, 0, 0.9);
+	
+	& .navbar-brand {
+		color: #bbb;
+	}
+	
+	& .navbar-nav > li > a {
+		color: #bbb;
+	}
+	
+	& .navbar-nav > li > a:hover,
+	& .navbar-nav > li > a:focus {
+		color: #fff;
+	}
+	
+	& .navbar-toggle {
+		border-color: #eee;
+	}
+	
+	& .navbar-toggle:hover,
+	& .navbar-toggle:focus {
+		background-color: #128f76;
+	}
+	
+	& .navbar-toggle .icon-bar {
+		background-color: #fff;
+	}
+	
+	& .navbar-nav > .open > a,
+	& .navbar-nav > .open > a:hover,
+	& .navbar-nav > .open > a:focus {
+		color: #fff;
+		background-color: #128f76;
+	}
+}
+
+/* 各種モーダル */
+#chkImageModal, #saveModal, #submitModal, #checkBillsModal {
+	margin-top: 100px;
+	.modal-header {
+		border-radius: 1px 3px 0px 0px;
+		background-color: #333;
+		color: #eee;
+	}
+	.modal-body {
+		color: #000;
+
+		& img {
+			max-width: 880px;
+		}
+	}
+	.modal-footer {
+		border-radius: 0px 0px 5px 5px;
+		background-color: #eee;
+		color: #666;	
+	}
+}
