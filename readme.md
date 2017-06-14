@@ -1,3 +1,10 @@
+# 用語集
+
+|用語         | 英語　　　　 | 内容         |
+|:-----------|:------------|:------------:|
+| 会員        |member|メールを配信したい会員のことです     |
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
