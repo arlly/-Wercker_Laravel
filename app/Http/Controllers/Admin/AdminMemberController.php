@@ -31,10 +31,12 @@ class AdminMemberController extends AdminController
     {
         //
         $results = $this->memberRepo->getList();
+        $search = session()->get('admin.member.search');
         
         return view('admin.member.index', [
             'breadcrumb' => $this->breadcrumb,
-            'results' => $results
+            'results' => $results,
+            'search' => $search
         ]);
     }
    
