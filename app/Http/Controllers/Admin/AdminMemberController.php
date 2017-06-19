@@ -37,6 +37,7 @@ class AdminMemberController extends AdminController
             'results' => $results
         ]);
     }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -135,6 +136,32 @@ class AdminMemberController extends AdminController
         
         $this->memberRepo->delete($id);
         \Flash::success('削除しました。');
+        return redirect()->route('admin.member');
+    }
+    
+    
+    public function postIndex(Request $request)
+    {
+        session()->put('admin.member.search', request()->all() );
+        return redirect()->route('admin.member.search')->withInput();
+    }
+    
+    public function search()
+    {
+        $search = session()->get('admin.member.search');
+        
+        $results = $this->memberRepo->search($search);
+        
+        return view('admin.member.index', [
+            'breadcrumb' => $this->breadcrumb,
+            'results' => $results,
+            'search' => $search
+        ]);
+    }
+    
+    public function resetSearch()
+    {
+        session()->forget('admin.member.search');
         return redirect()->route('admin.member');
     }
 }

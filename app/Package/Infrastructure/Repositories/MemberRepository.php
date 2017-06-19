@@ -58,4 +58,43 @@ class MemberRepository implements MemberRepositoryInterface
         
         return $this->eloquentMember->find($id)->delete();
     }
+
+    public function search($param)
+    {
+        $Member = $this->eloquentMember->orderBy('id', 'desc');
+        
+        if ($param["search_company"]) {
+            $Member->where('company', 'LIKE', '%' . $param["search_company"] . '%');
+        }
+        
+        if ($param["search_name"]) {
+            $Member->where('name', 'LIKE', '%' . $param["search_name"] . '%');
+        }
+        
+        if ($param["search_email"]) {
+            $Member->where('email', 'LIKE', '%' . $param["search_email"] . '%');
+        }
+        
+        if ($param["search_tel"]) {
+            $Member->where('tel', 'LIKE', '%' . $param["search_tel"] . '%');
+        }
+        
+        if ($param["search_is_active"]) {
+            $Member->where('is_active', 1);
+        }
+        
+        if ($param["search_refuse"]) {
+            $Member->whereIn('refuse', [
+                0,
+                1
+            ]);
+        } else {
+            $Member->whereIn('refuse', [
+                0
+            ]);
+        }
+        
+        return $Member->paginate(50);
+       
+    }
 }
