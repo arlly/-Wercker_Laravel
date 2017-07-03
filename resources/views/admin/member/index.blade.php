@@ -14,6 +14,89 @@
 			<h2 class="h2 page-header animated bounce">会員一覧</h2>
 			@include('flash::message')
 			
+			{!! Form::open(['url' => 'admin/member/search', 'class' => 'form-horizontal']) !!}
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover table-striped table-condensed">
+						<colgroup>
+							<col width="15%">
+							<col width="35%">
+							<col width="15%">
+							<col width="35%">
+						</colgroup>
+						
+						<thead></thead>
+						<tbody>
+							<tr>
+								<th class="text-center">会社名</th>
+								<td class="text-center">
+									<div class="{{ $errors->has('search_company') ? 'has-error' : '' }}">
+										{!! Form::text('search_company', isset($search['search_company']) ? $search['search_company'] : '', ['class' => 'form-control', 'maxlength' => '11']) !!}
+										
+										@if ($errors->has('search_company'))
+											<span class="help-block"><strong>{{ $errors->first('search_company') }}</strong></span>
+										@endif
+									</div>
+								</td>
+								<th class="text-center" colspan="1">会員名</th>
+								<td class="text-center" colspan="1">
+									<div class="{{ $errors->has('search_name') ? 'has-error' : '' }}">
+										{!! Form::text('search_name', isset($search['search_name']) ? $search['search_name'] : '', ['class' => 'form-control', 'maxlength' => '255', 'placeholder' => '']) !!}
+										
+										@if ($errors->has('search_name'))
+											<span class="help-block"><strong>{{ $errors->first('search_name') }}</strong></span>
+										@endif
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="text-center" colspan="1">メールアドレス</th>
+								<td class="text-center" colspan="1">
+									<div class="{{ $errors->has('search_email') ? 'has-error' : '' }}">
+										{!! Form::tel('search_email', isset($search['search_email']) ? $search['search_email'] : '', ['class' => 'form-control', 'maxlength' => '255', 'placeholder' => '']) !!}
+										
+										@if ($errors->has('search_email'))
+											<span class="help-block"><strong>{{ $errors->first('search_email') }}</strong></span>
+										@endif
+									</div>
+								</td>
+								<th class="text-center" colspan="1">電話番号</th>
+								<td class="text-center" colspan="1">
+									<div class="{{ $errors->has('search_tel') ? 'has-error' : '' }}">
+										{!! Form::tel('search_tel', isset($search['search_tel']) ? $search['search_tel'] : '', ['class' => 'form-control', 'maxlength' => '255', 'placeholder' => '']) !!}
+										
+										@if ($errors->has('search_tel'))
+											<span class="help-block"><strong>{{ $errors->first('search_tel') }}</strong></span>
+										@endif
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<th class="text-center" colspan="1">アクティブステータス</th>
+								<td class="text-center" colspan="1">
+								    {{Form::hidden('search_is_active', 0)}}
+									<div class="{{ $errors->has('search_is_active') ? 'has-error' : '' }}">
+										{{Form::checkbox('search_is_active', 1, ($search['search_is_active']==1) ? 'true' : '')}} アクティブのアドレスのみ
+									</div>
+								</td>
+								<th class="text-center" colspan="1">配信拒否</th>
+								<td class="text-center" colspan="1">
+								    {{Form::hidden('search_refuse', 0)}}
+									<div class="{{ $errors->has('search_refuse') ? 'has-error' : '' }}">
+										{{Form::checkbox('search_refuse', 1, ($search['search_refuse']==1) ? 'true' : '')}} 配信拒否のアドレスも含める
+									</div>
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="text-center mb-25">
+					<a href="{{ route('admin.member.search.reset') }}" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span>&nbsp;検索条件クリア</a>
+					<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span>&nbsp;検索する</button>
+				</div>
+			{!! Form::close() !!}
+			
 			@if( $results->count() > 0 )
 				{!! $results->render() !!}
 				<div>

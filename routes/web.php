@@ -34,11 +34,15 @@ Route::group([
         "prefix" => 'member'
     ], function () {
     
+        Route::post('/', 'AdminMemberController@postIndex');
         Route::get('/', 'AdminMemberController@index')->name('admin.member');
         Route::get('create/', 'AdminMemberController@create')->name('admin.member.create');
         Route::post('create/', 'AdminMemberController@store');
         Route::get('edit/{id}', 'AdminMemberController@edit')->name('admin.member.edit');
         Route::post('edit/{id}', 'AdminMemberController@update');
+        Route::post('search', 'AdminMemberController@postIndex');
+        Route::get('search', 'AdminMemberController@search')->name('admin.member.search');
+        Route::get('search/reset', 'AdminMemberController@resetSearch')->name('admin.member.search.reset');
         Route::get('delete/{id}', 'AdminMemberController@destroy')->name('admin.member.delete');
     });
 });

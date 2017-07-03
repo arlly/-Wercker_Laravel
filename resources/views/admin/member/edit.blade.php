@@ -59,24 +59,19 @@
 			    <tr>
 			      <th class="text-center">住所<span class="attention">*</span></th>
 			      <td class="text-center">
-			        {!! Form::text('address1', !empty($row->address2) ? $row->address1 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
-			        {!! Form::text('address2', !empty($row->address2) ? $row->address2 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
+			        {!! Form::text('address', !empty($row->address) ? $row->address : null, ['required', 'class' => 'form-control', 'maxlength' => '200']) !!}
 			      </td>
 			    </tr>
 			    <tr>
 			      <th class="text-center">電話番号<span class="attention">*</span></th>
 			      <td class="text-center">
-			        {!! Form::text('tel1', !empty($row->tel1) ? $row->tel1 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
-			        {!! Form::text('tel2', !empty($row->tel2) ? $row->tel2 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
-			        {!! Form::text('tel3', !empty($row->tel3) ? $row->tel3 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
+			        {!! Form::text('tel', !empty($row->tel) ? $row->tel : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
 			      </td>
 			    </tr>
 			    <tr>
-			      <th class="text-center">FAX番号<span class="attention">*</span></th>
+			      <th class="text-center">FAX番号</th>
 			      <td class="text-center">
-			        {!! Form::text('fax1', !empty($row->fax1) ? $row->fax1 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
-			        {!! Form::text('fax2', !empty($row->fax2) ? $row->fax2 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
-			        {!! Form::text('fax3', !empty($row->fax3) ? $row->fax3 : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}
+			        {!! Form::text('fax', !empty($row->fax) ? $row->fax : null, ['class' => 'form-control', 'maxlength' => '50']) !!}
 			      </td>
 			    </tr>
 			    
@@ -87,15 +82,15 @@
 			      </td>
 			    </tr>
 			    <tr>
-			      <th class="text-center">部署<span class="attention">*</span></th>
+			      <th class="text-center">部署</th>
 			      <td class="text-center">
-			        {!! Form::text('division', !empty($row->division) ? $row->division : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}			        
+			        {!! Form::text('division', !empty($row->division) ? $row->division : null, ['class' => 'form-control', 'maxlength' => '50']) !!}			        
 			      </td>
 			    </tr>
 			    <tr>
-			      <th class="text-center">役職<span class="attention">*</span></th>
+			      <th class="text-center">役職</th>
 			      <td class="text-center">
-			        {!! Form::text('post', !empty($row->post) ? $row->post : null, ['required', 'class' => 'form-control', 'maxlength' => '50']) !!}			        
+			        {!! Form::text('post', !empty($row->post) ? $row->post : null, ['class' => 'form-control', 'maxlength' => '50']) !!}			        
 			      </td>
 			    </tr>
 			    <tr>
@@ -120,6 +115,23 @@
                   @else
                     {{Form::radio('is_active', 1)}} 送信確認済み
 			        {{Form::radio('is_active', 0, true)}} 送信エラー
+                  @endif
+			    @endif
+			      </td>
+			    </tr>
+			    
+			    <tr>
+			      <th class="text-center">配信拒否フラグ<span class="attention">*</span></th>
+			      <td class="text-center">
+			    @if (Request::path() == "admin/member/create")
+			      
+			      {{Form::checkbox('refuse', 1)}} 配信拒否希望
+			      
+			    @else
+			      @if (!empty($row->refuse) && $row->refuse == 1)
+                    {{Form::checkbox('refuse', 1, true)}} 配信拒否希望
+                  @else
+                    {{Form::checkbox('refuse', 1)}} 配信拒否希望
                   @endif
 			    @endif
 			      </td>
