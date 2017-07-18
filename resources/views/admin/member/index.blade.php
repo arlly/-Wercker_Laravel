@@ -100,10 +100,12 @@
 			@if( $results->count() > 0 )
 				{!! $results->render() !!}
 				<div>
+				{!! Form::open(['url' => 'admin/member/search', 'class' => 'form-horizontal']) !!}
 					<table class="table table-bordered table-hover table-striped table-condensed">
 						<colgroup>
+						    <col width="5%">
 							<col width="10%">
-							<col width="40%">
+							<col width="35%">
 							<col width="10%">
 							<col width="20%">
 							<col width="10%">
@@ -112,6 +114,7 @@
 						</colgroup>
 						
 						<tr>
+						    <th class="text-center">　</th>
 							<th class="text-center">ID</th>
 							<th class="text-center">会社名</th>
 							<th class="text-center">お名前</th>
@@ -121,6 +124,7 @@
 						</tr>
 						@foreach($results as $result)
 							<tr>
+							    <td class="text-center">{{Form::checkbox('memberId[]', $result->id, ($search['search_refuse']==1) ? 'true' : '')}}</td>
 								<td class="text-center">{{ $result->id }}</td>
 								<td class="text-center">{{ $result->company }}</td>
 								<td class="text-center">{{ $result->name }}</td>
@@ -142,6 +146,7 @@
 							</tr>
 						@endforeach
 					</table>
+				{!! Form::close() !!}
 				</div>
 				{!! $results->render() !!}
 				

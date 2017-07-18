@@ -26,7 +26,7 @@ class MemberRepository implements MemberRepositoryInterface
 
     public function getList()
     {
-        return $this->eloquentMember->orderBy('id', 'desc')->paginate(50);
+        return $this->eloquentMember->orderBy('id', 'desc')->paginate(100);
     }
 
     public function create($data)
