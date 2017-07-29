@@ -64,7 +64,3 @@ build:
               </php>
           </phpunit>
 
-    - script:
-        name: Run phpunit
-        code: |-
-          phpunit
