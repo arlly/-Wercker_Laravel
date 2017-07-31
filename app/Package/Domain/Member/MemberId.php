@@ -8,6 +8,10 @@ class MemberId
 
     public function __construct(int $value)
     {
+        if ($value < 0) { 
+            throw new \Exception('exception!');
+        }
+        
         $this->value = $value;
     }
 
