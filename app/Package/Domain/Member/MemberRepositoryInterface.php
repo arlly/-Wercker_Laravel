@@ -38,7 +38,7 @@ interface MemberRepositoryInterface
      *            $data
      * @return mixed
      */
-    public function update(int $id, $data);
+    public function update($id, $data);
 
     /**
      * 削除
@@ -47,7 +47,7 @@ interface MemberRepositoryInterface
      *            $id
      * @return mixed
      */
-    public function delete(int $id);
+    public function delete($id);
 }
 
 

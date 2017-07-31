@@ -38,7 +38,7 @@ class MemberRepository implements MemberRepositoryInterface
         return null;
     }
 
-    public function update(int $id, $data)
+    public function update($id, $data)
     {
         if (! is_numeric($id)) {
             throw new \RuntimeException();
@@ -50,7 +50,7 @@ class MemberRepository implements MemberRepositoryInterface
         return null;
     }
 
-    public function delete(int $id)
+    public function delete($id)
     {
         if (! is_numeric($id)) {
             throw new \RuntimeException();
