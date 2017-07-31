@@ -74,6 +74,10 @@ build:
 
 deploy:
     steps:
+    
+      - add-ssh-key:
+          keyname: DEPLOY_KEY_PUBLIC
+      
 
       - add-to-known_hosts:
           hostname: 52.69.111.103
