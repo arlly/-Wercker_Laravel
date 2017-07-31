@@ -11,7 +11,7 @@ interface MemberRepositoryInterface
      *            $id
      * @return mixed
      */
-    public function findByID($id);
+    public function findByID(int $id);
 
     /**
      * 一覧取得
@@ -38,7 +38,7 @@ interface MemberRepositoryInterface
      *            $data
      * @return mixed
      */
-    public function update($id, $data);
+    public function update(int $id, $data);
 
     /**
      * 削除
@@ -47,7 +47,7 @@ interface MemberRepositoryInterface
      *            $id
      * @return mixed
      */
-    public function delete($id);
+    public function delete(int $id);
 }
 
 

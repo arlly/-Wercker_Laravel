@@ -14,7 +14,7 @@ class MemberRepository implements MemberRepositoryInterface
         $this->eloquentMember = $member;
     }
 
-    public function findByID($id)
+    public function findByID(int $id)
     {
         $member = $this->eloquentMember->find($id);
         
@@ -38,7 +38,7 @@ class MemberRepository implements MemberRepositoryInterface
         return null;
     }
 
-    public function update($id, $data)
+    public function update(int $id, $data)
     {
         if (! is_numeric($id)) {
             throw new \RuntimeException();
@@ -50,7 +50,7 @@ class MemberRepository implements MemberRepositoryInterface
         return null;
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         if (! is_numeric($id)) {
             throw new \RuntimeException();
