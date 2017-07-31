@@ -63,4 +63,9 @@ build:
                   <env name="DB_PORT" value="$MYSQL_PORT_3306_TCP_PORT"/>
               </php>
           </phpunit>
+          
+    - script:
+        name: Run phpunit
+        code: |-
+          vendor/bin/phpunit tests/Repository/MemberRepositoryTest
 
