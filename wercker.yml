@@ -1,4 +1,4 @@
-box: suttang/wercker-laravel5
+box: hitalos/laravel
 services:
   - id: mysql
     env:
@@ -69,8 +69,5 @@ build:
         code: |-
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
           
-    - script:
-        name: Run migration
-        code: |-
-          php artisan migrate
+    
 
