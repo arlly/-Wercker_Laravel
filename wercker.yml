@@ -76,7 +76,7 @@ deploy:
     steps:
     
       - add-ssh-key:
-          keyname: DEPLOY_KEY_PRIVATE
+          keyname: DEPLOY_KEY
       
 
       - add-to-known_hosts:
