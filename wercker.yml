@@ -74,21 +74,11 @@ build:
 
 deploy:
     steps:
-      #
-      # rsyncをインストール
-      #
-      - script:
-          name: install rsync
-          code: |
-            sudo apt-get update
-            sudo apt-get -y install rsync
-    
-      - add-ssh-key:
-          keyname: DEPLOY_KEY
-      
-
       - add-to-known_hosts:
           hostname: 52.69.111.103
+          
+      - add-ssh-key:
+          keyname: DEPLOY_KEY    
 
       - mktemp:
           envvar: PRIVATEKEY_PATH
