@@ -68,4 +68,9 @@ build:
         name: Run phpunit
         code: |-
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
+          
+    - script:
+        name: Run migration
+        code: |-
+          php artisan migrate
 
