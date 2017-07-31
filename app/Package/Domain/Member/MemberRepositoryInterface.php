@@ -11,7 +11,7 @@ interface MemberRepositoryInterface
      *            $id
      * @return mixed
      */
-    public function findByID(int $id);
+    public function findByID($id);
 
     /**
      * 一覧取得

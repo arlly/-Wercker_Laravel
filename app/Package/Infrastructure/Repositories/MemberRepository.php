@@ -14,7 +14,7 @@ class MemberRepository implements MemberRepositoryInterface
         $this->eloquentMember = $member;
     }
 
-    public function findByID(int $id)
+    public function findByID($id)
     {
         $member = $this->eloquentMember->find($id);
         
