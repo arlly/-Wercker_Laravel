@@ -10,7 +10,7 @@ class Members
 
     protected $email;
 
-    public function setId(int $value)
+    public function setId(MemberId $value)
     {
         $this->id = $value;
         return $this;
