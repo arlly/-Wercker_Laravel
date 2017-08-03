@@ -71,7 +71,10 @@ build:
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
 
 deploy:
-    steps:   
+    steps:
+      - install-packages:
+          packages: openssh-client
+           
       - add-to-known_hosts:
           hostname: 52.69.111.103
 
