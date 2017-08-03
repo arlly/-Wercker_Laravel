@@ -72,6 +72,17 @@ build:
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
 
 deploy:
+   aws:
+    - add-ssh-key:
+        keyname: PRIVATEKEY_PATH
+        host: 52.69.111.103
+    - add-to-known_hosts:
+        hostname: 52.69.111.103
+    - script:
+        name: clone or pull then start
+        code: |
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST APP=$APP REPO_URL=$REPO_URL ./update_server.sh
+ 
     steps:
       - mktemp:
           envvar: PRIVATEKEY_PATH
