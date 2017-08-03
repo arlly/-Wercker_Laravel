@@ -83,7 +83,7 @@ deploy:
           hide-from-log: true
  
       - install-packages:
-          packages: openssh-client
+          packages: openssh-clients
           
       - add-to-known_hosts:
           hostname: 52.69.111.103
