@@ -75,8 +75,20 @@ build:
 deploy:
     steps:
     
-      - install-packages:
-          packages: openssh-client
+        # 一時的に使用するフォルダを作成
+        - mktemp:
+            envvar: PRIVATEKEY_PATH
+            
+        - create-file:
+            name: write key
+            filename: $PRIVATEKEY_PATH
+            
+        # $[4.の「Environment variable」で入力した値]_PRIVATE
+            content: $DEPLOY_KEY_PATH
+            overwrite: true
+            hide-from-log: true
+    
+      
           
       - add-to-known_hosts:
           hostname: 52.69.111.103
