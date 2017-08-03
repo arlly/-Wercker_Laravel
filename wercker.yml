@@ -72,8 +72,13 @@ build:
 
 deploy:
     steps:
-      - install-packages:
-          packages: openssh-client
+      - mktemp:
+          envvar: PRIVATEKEY_PATH
+          
+      - create-file:
+          name: write key
+          filename: $PRIVATEKEY_PATH
+ 
            
       - add-to-known_hosts:
           hostname: 52.69.111.103
