@@ -69,18 +69,14 @@ build:
         name: Run phpunit
         code: |-
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
-          
-
 
 deploy:
+    steps:   
       - add-to-known_hosts:
           hostname: 52.69.111.103
-          
-      - add-ssh-key:
-          keyname: DEPLOY_KEY    
 
       - mktemp:
-          envvar: PRIVATEKEY_PATH
+          envvar: PRIVATEKEY_PATH    
 
       # werckerで設定したsshの秘密鍵の環境変数を基に秘密鍵を生成
       - create-file:
@@ -104,8 +100,4 @@ deploy:
           code: |
             PORT=${PORT}
             USER=${USER}
-            tar cvz /pipeline/source/* | ssh -i $PRIVATEKEY_PATH -p $PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=no $USER@52.69.111.103 tar zxv -C /home/$USER/deploy/
-
-          
-    
-
+            tar cvz /pipeline/source/* | ssh -i $PRIVATEKEY_PATH -p $PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=no $USER@yoshinorin.net tar zxv -C /home/$USER/deploy/
