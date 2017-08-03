@@ -82,8 +82,9 @@ deploy:
           overwrite: true
           hide-from-log: true
  
-      - install-packages:
-          packages: openssh-client-ssh1
+      - script:
+          name: set permissions for ssh key
+          code: chmod 0400 $PRIVATEKEY_PATH
           
       - add-to-known_hosts:
           hostname: 52.69.111.103
