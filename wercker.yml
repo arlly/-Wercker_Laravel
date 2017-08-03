@@ -74,10 +74,13 @@ deploy:
     steps:
       - mktemp:
           envvar: PRIVATEKEY_PATH
-          
+
       - create-file:
           name: write key
           filename: $PRIVATEKEY_PATH
+          content: $DEPLOY_KEY_PRIVATE
+          overwrite: true
+          hide-from-log: true
  
            
       - add-to-known_hosts:
