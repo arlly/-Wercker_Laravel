@@ -1,125 +1,26 @@
-box: hitalos/laravel
-
-services:
-  - id: mysql
-    env:
-      MYSQL_ROOT_PASSWORD: rootpasswd
-      MYSQL_USER: testuser
-      MYSQL_PASSWORD: testpasswd
-      MYSQL_DATABASE: testdb
-      
-dev:
-  steps:
-    - install-packages:
-        packages: git
-
+box: debian
 build:
   steps:
-    - script:
-        name: Install dependencies
-        code: |
-          composer install
-
-    - script:
-        name: Create env file
-        code: |-
-          cp .env.example .env
-
-    - script:
-        name: Generate application key
-        code: |-
-          php artisan key:generate
-
-    - create-file:
-        name: Edit phpunit.xml
-        filename: phpunit.xml
-        overwrite: true
-        content: |-
-          <?xml version="1.0" encoding="UTF-8"?>
-          <phpunit backupGlobals="false"
-                   backupStaticAttributes="false"
-                   bootstrap="bootstrap/autoload.php"
-                   colors="true"
-                   convertErrorsToExceptions="true"
-                   convertNoticesToExceptions="true"
-                   convertWarningsToExceptions="true"
-                   processIsolation="false"
-                   stopOnFailure="false"
-                   verbose="true"
-                   testdox="true">
-              <testsuites>
-                  <testsuite name="Application Test Suite">
-                      <directory>./tests/</directory>
-                  </testsuite>
-              </testsuites>
-              <filter>
-                  <whitelist>
-                      <directory suffix=".php">app/</directory>
-                  </whitelist>
-              </filter>
-              <php>
-                  <env name="APP_ENV" value="testing"/>
-                  <env name="CACHE_DRIVER" value="array"/>
-                  <env name="SESSION_DRIVER" value="array"/>
-                  <env name="QUEUE_DRIVER" value="sync"/>
-                  <env name="DB_HOST" value="$MYSQL_PORT_3306_TCP_ADDR"/>
-                  <env name="DB_DATABASE" value="testdb"/>
-                  <env name="DB_USERNAME" value="testuser"/>
-                  <env name="DB_PASSWORD" value="testpasswd"/>
-                  <env name="DB_PORT" value="$MYSQL_PORT_3306_TCP_PORT"/>
-              </php>
-          </phpunit>
-          
-    - script:
-        name: Run phpunit
-        code: |-
-          vendor/bin/phpunit tests/Repository/MemberRepositoryTest
-
+    - arjen/hugo-build:
+        version: "0.14"
+        theme: angels-ladder
+        flags: --buildDrafts=false
 deploy:
-    steps:
-      - mktemp:
-          envvar: PRIVATEKEY_PATH
-
-      - create-file:
-          name: write key
-          filename: $PRIVATEKEY_PATH
-          content: $DEPLOY_KEY_PRIVATE
-          overwrite: true
-          hide-from-log: true
- 
-      - script:
-          name: set permissions for ssh key
-          code: chmod 0400 $PRIVATEKEY_PATH
-          
-      - install-packages:
-          packages: ssh-client
-        
-      - add-to-known_hosts:
-          hostname: 52.69.111.103
-
-      - mktemp:
-          envvar: PRIVATEKEY_PATH    
-
-      # werckerで設定したsshの秘密鍵の環境変数を基に秘密鍵を生成
-      - create-file:
-          name: Create private key
-          filename: $PRIVATEKEY_PATH
-          content: $DEPROY_KEY_PRIVATE
-          overwrite: true
-
-      # デプロイ前に不要なファイルを削除
-      - script: 
-          name: Remove no need assets
-          code: |
-           rm -rf CNAME
-           rm -rf .gitignore
-           rm -rf hexo-rpp-negativewords.txt
-           rm -rf wercker.yml
-
-      # 「/pipeline/source/」ディレクトリにソースがあるのでそれをtar + sshでサーバーに転送
-      - script:
-          name: Transfer data
-          code: |
-            PORT=${PORT}
-            USER=${USER}
-            tar cvz /pipeline/source/* | ssh -i $PRIVATEKEY_PATH -p $PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=no $USER@yoshinorin.net tar zxv -C /home/$USER/deploy/
+  steps:
+    - install-packages:
+        packages: ssh-client
+    - add-to-known_hosts:
+        hostname: 52.69.111.103
+    - mktemp:
+        envvar: PRIVATEKEY_PATH
+    - create-file:
+        name: write key
+        filename: $PRIVATEKEY_PATH
+        content: $DEPLOY_KEY_PRIVATE
+        overwrite: true
+    - script:
+        name: show data
+        code: ls -al public
+    - script:
+        name: transfer data
+        code: scp -i $PRIVATEKEY_PATH -P 22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=no -r ./public wercker@{YOURHOST.COM}:~/hugo
