@@ -86,6 +86,9 @@ deploy:
           name: set permissions for ssh key
           code: chmod 0400 $PRIVATEKEY_PATH
           
+      - install-packages:
+          apt-get install openssh-client
+        
       - add-to-known_hosts:
           hostname: 52.69.111.103
 
