@@ -87,7 +87,7 @@ deploy:
           code: chmod 0400 $PRIVATEKEY_PATH
           
       - install-packages:
-          packages: git ssh-client
+          packages: git ssh-client curl
         
       - add-to-known_hosts:
           hostname: 52.69.111.103
