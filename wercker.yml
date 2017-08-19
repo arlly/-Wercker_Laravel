@@ -78,4 +78,4 @@ build:
       - script:
         name: upload files via FTP
         code: |
-          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "set ssl:verify-certificate no;mirror -Rev -X wercker.yml ./. /home/users/1/pepper.jp-arlly/web/php/." ${FTP_SERVER_URL}
+          lftp -u $FTP_USERNAME,$FTP_PASSWORD -e "set ssl:verify-certificate no;mirror -Rev -X wercker.yml ./. /home/users/1/pepper.jp-arlly/web/php/." $FTP_SERVER_URL
