@@ -32,4 +32,4 @@ deploy:
     - script:
         name: transfer application
         code: |
-          ssh -p 22 -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null wercker@52.69.111.103 "cd [/var/www/html/test] && git pull origin master"
+          ssh -p 22 -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null wercker@52.69.111.103 "cd /var/www/html/test && git pull origin master"
