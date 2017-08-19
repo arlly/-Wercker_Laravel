@@ -74,4 +74,4 @@ build:
     - script:
         name: Run echo
         code: |-
-          echo "Build finished!"
+          echo realpath("./artisan")
