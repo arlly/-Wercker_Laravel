@@ -73,7 +73,8 @@ build:
  
 deploy:
     steps:
-      
+      - install-packages:
+        packages: openssh-client
       - add-to-known_hosts:
           hostname: 52.69.111.103
 
