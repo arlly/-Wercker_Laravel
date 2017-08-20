@@ -1,4 +1,4 @@
-box: governmentpaas/git-ssh
+box: eboraas/laravel
 
 services:
   - id: mysql
