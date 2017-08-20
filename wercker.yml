@@ -92,12 +92,9 @@ deploy:
     - script:
         name: install ssh and rsync
         code: |
-          deb http://old-releases.ubuntu.com/ubuntu maverick main restricted universe
-          deb http://old-releases.ubuntu.com/ubuntu maverick-updates main restricted universe
-          deb http://old-releases.ubuntu.com/ubuntu maverick-security main restricted universe
-          apt-get update
-          apt-get install -y ssh
-          apt-get install -y rsync
+          RUN apt-get update
+          RUN apt-get install -y ssh
+          RUN apt-get install -y rsync
 
     # コマンドを実行。今回はsshでデプロイ先に接続し、git pullしています。
     - script:
