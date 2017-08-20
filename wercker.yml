@@ -1,4 +1,4 @@
-box: hitalos/laravel
+box: kinogmt/centos-ssh
 
 services:
   - id: mysql
