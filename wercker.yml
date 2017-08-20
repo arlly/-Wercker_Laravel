@@ -1,4 +1,4 @@
-box: kinogmt/centos-ssh
+box: governmentpaas/git-ssh
 
 services:
   - id: mysql
