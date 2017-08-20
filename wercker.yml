@@ -89,13 +89,6 @@ deploy:
         overwrite: true
         hide-from-log: true
 
-    - script:
-        name: install ssh and rsync
-        code: |
-          RUN apt-get update
-          RUN apt-get install -y ssh
-          RUN apt-get install -y rsync
-
     # コマンドを実行。今回はsshでデプロイ先に接続し、git pullしています。
     - script:
         name: transfer application
