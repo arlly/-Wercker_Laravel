@@ -1,4 +1,4 @@
-box: madworks/php-ci
+box: eugenebalaban/laravel-php-fpm-ssh
 
 services:
   - id: mysql
