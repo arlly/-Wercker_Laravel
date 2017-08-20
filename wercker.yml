@@ -1,4 +1,4 @@
-box: hitalos/laravel
+box: madworks/php-ci
 
 services:
   - id: mysql
