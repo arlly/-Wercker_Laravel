@@ -72,6 +72,8 @@ build:
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
 
 # デプロイフェーズ。ここでデプロイします。
+box: dock0/ssh
+
 deploy:
   steps:
     # 一時的に使用するフォルダを作成
