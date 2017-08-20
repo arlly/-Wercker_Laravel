@@ -72,7 +72,6 @@ build:
           vendor/bin/phpunit tests/Repository/MemberRepositoryTest
 
 # デプロイフェーズ。ここでデプロイします。
-box: dock0/ssh
 
 deploy:
   steps:
@@ -89,6 +88,9 @@ deploy:
         content: $DEPLOY_KEY_AWS
         overwrite: true
         hide-from-log: true
+
+    - install-packages:
+        packages: git ssh-client
 
     # コマンドを実行。今回はsshでデプロイ先に接続し、git pullしています。
     - script:
