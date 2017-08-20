@@ -1,4 +1,4 @@
-box: eboraas/laravel
+box: hitalos/laravel
 
 services:
   - id: mysql
@@ -89,8 +89,10 @@ deploy:
         overwrite: true
         hide-from-log: true
 
-    - install-packages:
-        packages: git ssh-client
+    - script:
+        name: ssh
+        code: |-
+          apt-get install ssh
 
     # コマンドを実行。今回はsshでデプロイ先に接続し、git pullしています。
     - script:
