@@ -1,4 +1,4 @@
-box: eugenebalaban/laravel-php-fpm-ssh
+box: potsky/laravel
 
 services:
   - id: mysql
