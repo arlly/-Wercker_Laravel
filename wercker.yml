@@ -94,3 +94,8 @@ deploy:
         name: transfer application
         code: |
           ssh -p 22 -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@52.69.111.103 "cd /var/www/html/test/cymedix_mailsystem && git pull origin master"
+         
+    - script:
+        name: config cache
+        code: |
+          php artisan config:cache 
