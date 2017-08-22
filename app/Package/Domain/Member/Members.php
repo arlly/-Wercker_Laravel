@@ -18,7 +18,7 @@ class Members
 
     public function getId()
     {
-        return $this->id;
+        return (new MemberId($this->id))->getMemberId();
     }
 
     public function setName($value)
