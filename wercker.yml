@@ -25,11 +25,6 @@ build:
         name: Generate application key
         code: |-
           php artisan key:generate
-          
-    - script:
-        name: Run migration
-        code: |-
-          php artisan migrate
 
     - create-file:
         name: Edit phpunit.xml
