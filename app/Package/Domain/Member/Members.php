@@ -21,7 +21,7 @@ class Members
     }
 
     /**
-     * 
+     * return MemberID::getMemberId
      */
     public function getId()
     {
