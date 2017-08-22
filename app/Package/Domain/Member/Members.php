@@ -10,15 +10,22 @@ class Members
 
     protected $email;
 
+    /**
+     * 
+     * @param MemberId $value
+     */
     public function setId(MemberId $value)
     {
         $this->id = $value;
         return $this;
     }
 
+    /**
+     * return MemberID::getMemberId
+     */
     public function getId()
     {
-        return $this->id;
+        return (new MemberId($this->id))->getMemberId();
     }
 
     public function setName($value)
