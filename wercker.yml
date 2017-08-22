@@ -29,7 +29,7 @@ build:
     - script:
         name: Run migration
         code: |-
-          php artisan migration
+          php artisan migrate
 
     - create-file:
         name: Edit phpunit.xml
